@@ -7,7 +7,7 @@ all he/she needs to know. The comments should usually include at least:
 PROJECT TITLE: Radio
 PURPOSE OF PROJECT: 
 Interfaz para el manejo de las caracteristicas basicas
-de un radio. 
+de una radio. 
 
 VERSION or DATE: 13/01/2018
  
@@ -19,7 +19,7 @@ de las frecuencias de la radio de la siguiente forma:
 
 public class SomeClass implements Radio {
 
-    public void getFavorito(boolean am_fm,int boton) {
+    public void getFavorito(boolean amFM,int boton) {
        /*
         *  Codigo para manejo de la lectura de favorito
         */ 

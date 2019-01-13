@@ -1,22 +1,44 @@
 
 /**
- * 
+ * Interfaz para el manejo de las caracteristicas basicasde una radio. 
  *
  * @author Pablo Sao
- * @version 1
+ * @version 1.0
  * @date 13/01/2018
  */
 public interface Radio
 {
-      
-    double subir_frecuencia(double frecuencia,boolean emisora);
-    
-    double bajar_frecuencia(double frecuencia,boolean emisora);
+    /**
+     * Metodo para manejar el encendido y apagado de la radio
+     * 
+     * @param onOff parametro para identificar si la radio se encendera o apagara
+     */
+    void encendidoRadio(boolean onOff);
     
     /**
-     * An example of a method header - replace this comment with your own
+     * Metodo para subir la frecuencia que se encuentra actualmente en la radio.
+     * 
+     * @param frecuencia Frecuencia que se encuentra actualmente en la radio.
+     * @param emisora Emisora que se encuentra seleccionada en la radio (AM/FM).
+     * @return Nueva frecuencia a reproducir en la radio.
+     */  
+    double subirFrecuencia(double frecuencia,boolean emisora);
+    
+    /**
+     * Metodo para bajar la frecuencia que se encuentra actualmente en la radio.
+     * 
+     * @param frecuencia Frecuencia que se encuentra actualmente en la radio.
+     * @param emisora Emisora que se encuentra seleccionada en la radio (AM/FM).
+     * @return Nueva frecuencia a reproducir en la radio.
+     */  
+    double bajarFrecuencia(double frecuencia,boolean emisora);
+    
+    /**
+     * Metodo para almacenar la frecuencia en el boton seleccionado
      *
-     * @param  y a sample parameter for a method
+     * @param frecuencia frecuencia de la radio a almacenar
+     * @param emisora parametro para identificar AM y FM.
+     * @param posicion numero del boton de favoritos seleccionado.
      * @return   the result produced by sampleMethod
      */
     void setFavorito(double frecuencia, boolean emisora,int posicion);
