@@ -11,7 +11,7 @@ public interface Radio
     /**
      * Metodo para manejar el encendido y apagado de la radio
      * 
-     * @param onOff parametro para identificar si la radio se encendera o apagara
+     * @param onOff Parametro para identificar si la radio se encendera o apagara
      */
     void encendidoRadio(boolean onOff);
     
@@ -39,7 +39,6 @@ public interface Radio
      * @param frecuencia frecuencia de la radio a almacenar
      * @param emisora parametro para identificar AM y FM.
      * @param posicion numero del boton de favoritos seleccionado.
-     * @return   the result produced by sampleMethod
      */
     void setFavorito(double frecuencia, boolean emisora,int posicion);
     
