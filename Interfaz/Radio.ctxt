@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Radio
+comment0.text=\r\n\ \r\n\r\n\ @author\ Pablo\ Sao\r\n\ @version\ 1\r\n\ @date\ 12/01/2018\r\n
+comment1.params=frecuencia\ emisora
+comment1.target=double\ subir_frecuencia(double,\ boolean)
+comment2.params=frecuencia\ emisora
+comment2.target=double\ bajar_frecuencia(double,\ boolean)
+comment3.params=frecuencia\ emisora\ posicion
+comment3.target=void\ setFavorito(double,\ boolean,\ int)
+comment3.text=\r\n\ An\ example\ of\ a\ method\ header\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ the\ result\ produced\ by\ sampleMethod\r\n
+comment4.params=frecuencia\ emisora\ posicion
+comment4.target=double\ getFavorito(double,\ boolean,\ int)
+comment4.text=\r\n\ An\ example\ of\ a\ method\ header\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ the\ result\ produced\ by\ sampleMethod\r\n
+numComments=5
