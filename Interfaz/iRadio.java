@@ -11,9 +11,9 @@ public interface iRadio
     /**
      * Metodo para cambiar de frecuencia seleccionada en la radio.
      * 
-     * @param amFM cambia la frecuencia de AM a FM
+     * @return retorna la frecuencia seleccionada
      */
-    void cambiarFrecuencia();
+    boolean cambiarAmFm();
     
     /**
      * Metodo para manejar el encendido y apagado de la radio
@@ -25,20 +25,16 @@ public interface iRadio
     /**
      * Metodo para subir la frecuencia que se encuentra actualmente en la radio.
      * 
-     * @param frecuencia Frecuencia que se encuentra actualmente en la radio.
-     * @param emisora Emisora que se encuentra seleccionada en la radio (AM/FM).
      * @return Nueva frecuencia a reproducir en la radio.
      */  
-    double subirEmisora();
+    double subirFrecuencia();
     
     /**
      * Metodo para bajar la frecuencia que se encuentra actualmente en la radio.
      * 
-     * @param frecuencia Frecuencia que se encuentra actualmente en la radio.
-     * @param emisora Emisora que se encuentra seleccionada en la radio (AM/FM).
      * @return Nueva frecuencia a reproducir en la radio.
      */  
-    double bajarEmisora();
+    double bajarFrecuencia();
     
     /**
      * Metodo para almacenar la frecuencia en el boton seleccionado
