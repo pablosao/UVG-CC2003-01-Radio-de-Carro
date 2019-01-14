@@ -3,11 +3,18 @@
  * Interfaz para el manejo de las caracteristicas basicasde una radio. 
  *
  * @author Pablo Sao
- * @version 1.0
- * @date 13/01/2019
+ * @version 1.1
+ * @date 14/01/2019
  */
-public interface Radio
+public interface iRadio
 {
+    /**
+     * Metodo para cambiar de frecuencia
+     * 
+     * @param amFM cambia la frecuencia de AM a FM
+     */
+    void cambiarFrecuencia(boolean amFM);
+    
     /**
      * Metodo para manejar el encendido y apagado de la radio
      * 
@@ -22,7 +29,7 @@ public interface Radio
      * @param emisora Emisora que se encuentra seleccionada en la radio (AM/FM).
      * @return Nueva frecuencia a reproducir en la radio.
      */  
-    double subirFrecuencia(double frecuencia,boolean emisora);
+    double subirEmisora(double frecuencia,boolean emisora);
     
     /**
      * Metodo para bajar la frecuencia que se encuentra actualmente en la radio.
@@ -31,7 +38,7 @@ public interface Radio
      * @param emisora Emisora que se encuentra seleccionada en la radio (AM/FM).
      * @return Nueva frecuencia a reproducir en la radio.
      */  
-    double bajarFrecuencia(double frecuencia,boolean emisora);
+    double bajarEmisora(double frecuencia,boolean emisora);
     
     /**
      * Metodo para almacenar la frecuencia en el boton seleccionado
