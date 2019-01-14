@@ -4,7 +4,7 @@
  *
  * @author Pablo Sao
  * @version 1.0
- * @date 13/01/2018
+ * @date 13/01/2019
  */
 public interface Radio
 {
