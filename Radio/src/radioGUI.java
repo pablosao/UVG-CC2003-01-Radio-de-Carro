@@ -30,9 +30,14 @@ public class radioGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         btnOnOff = new javax.swing.JToggleButton();
+        btnUno = new javax.swing.JButton();
+        btnDos = new javax.swing.JButton();
+        btnUno1 = new javax.swing.JButton();
+        btnDos1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnOnOff.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnOnOff.setText("Off");
         btnOnOff.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -40,21 +45,51 @@ public class radioGUI extends javax.swing.JFrame {
             }
         });
 
+        btnUno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnUno.setText("1");
+
+        btnDos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDos.setText("2");
+
+        btnUno1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnUno1.setText("1");
+
+        btnDos1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDos1.setText("2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(btnOnOff)
-                .addContainerGap(674, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(btnOnOff))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(btnUno)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUno1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDos1)))
+                .addContainerGap(503, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(btnOnOff, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUno)
+                    .addComponent(btnDos)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUno1)
+                        .addComponent(btnDos1)))
+                .addGap(78, 78, 78))
         );
 
         pack();
@@ -107,6 +142,10 @@ public class radioGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDos;
+    private javax.swing.JButton btnDos1;
     private javax.swing.JToggleButton btnOnOff;
+    private javax.swing.JButton btnUno;
+    private javax.swing.JButton btnUno1;
     // End of variables declaration//GEN-END:variables
 }
