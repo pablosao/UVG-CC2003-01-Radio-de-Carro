@@ -32,8 +32,16 @@ public class radioGUI extends javax.swing.JFrame {
         btnOnOff = new javax.swing.JToggleButton();
         btnUno = new javax.swing.JButton();
         btnDos = new javax.swing.JButton();
-        btnUno1 = new javax.swing.JButton();
-        btnDos1 = new javax.swing.JButton();
+        btnTres = new javax.swing.JButton();
+        btnCuatro = new javax.swing.JButton();
+        btnCinco = new javax.swing.JButton();
+        btnSeis = new javax.swing.JButton();
+        btnSiete = new javax.swing.JButton();
+        btnOcho = new javax.swing.JButton();
+        btnNueve = new javax.swing.JButton();
+        btnDiez = new javax.swing.JButton();
+        btnOnce = new javax.swing.JButton();
+        btnDoce = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,11 +59,47 @@ public class radioGUI extends javax.swing.JFrame {
         btnDos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDos.setText("2");
 
-        btnUno1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnUno1.setText("1");
+        btnTres.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnTres.setText("3");
 
-        btnDos1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnDos1.setText("2");
+        btnCuatro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnCuatro.setText("4");
+
+        btnCinco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnCinco.setText("5");
+        btnCinco.setToolTipText("");
+
+        btnSeis.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSeis.setText("6");
+
+        btnSiete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSiete.setText("7");
+
+        btnOcho.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnOcho.setText("8");
+        btnOcho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOchoActionPerformed(evt);
+            }
+        });
+
+        btnNueve.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnNueve.setText("9");
+
+        btnDiez.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDiez.setText("10");
+
+        btnOnce.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnOnce.setText("11");
+        btnOnce.setToolTipText("");
+
+        btnDoce.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDoce.setText("12");
+        btnDoce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,29 +111,54 @@ public class radioGUI extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(btnOnOff))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(btnUno)
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnUno, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                            .addComponent(btnSiete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDos)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDos, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                            .addComponent(btnOcho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUno1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnTres, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                            .addComponent(btnNueve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDos1)))
-                .addContainerGap(503, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDiez)
+                            .addComponent(btnCuatro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnOnce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDoce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(btnOnOff, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUno)
                     .addComponent(btnDos)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnUno1)
-                        .addComponent(btnDos1)))
-                .addGap(78, 78, 78))
+                    .addComponent(btnTres)
+                    .addComponent(btnCuatro)
+                    .addComponent(btnCinco)
+                    .addComponent(btnSeis))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDiez)
+                    .addComponent(btnOnce)
+                    .addComponent(btnDoce)
+                    .addComponent(btnNueve)
+                    .addComponent(btnOcho)
+                    .addComponent(btnSiete))
+                .addGap(48, 48, 48))
         );
 
         pack();
@@ -105,6 +174,14 @@ public class radioGUI extends javax.swing.JFrame {
             btnOnOff.setText("Off");
         }
     }//GEN-LAST:event_btnOnOffItemStateChanged
+
+    private void btnOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOchoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOchoActionPerformed
+
+    private void btnDoceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDoceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,10 +219,18 @@ public class radioGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCinco;
+    private javax.swing.JButton btnCuatro;
+    private javax.swing.JButton btnDiez;
+    private javax.swing.JButton btnDoce;
     private javax.swing.JButton btnDos;
-    private javax.swing.JButton btnDos1;
+    private javax.swing.JButton btnNueve;
+    private javax.swing.JButton btnOcho;
     private javax.swing.JToggleButton btnOnOff;
+    private javax.swing.JButton btnOnce;
+    private javax.swing.JButton btnSeis;
+    private javax.swing.JButton btnSiete;
+    private javax.swing.JButton btnTres;
     private javax.swing.JButton btnUno;
-    private javax.swing.JButton btnUno1;
     // End of variables declaration//GEN-END:variables
 }
