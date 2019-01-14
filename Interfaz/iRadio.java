@@ -9,7 +9,7 @@
 public interface iRadio
 {
     /**
-     * Metodo para cambiar de frecuencia
+     * Metodo para cambiar de frecuencia seleccionada en la radio.
      * 
      * @param amFM cambia la frecuencia de AM a FM
      */
@@ -44,19 +44,17 @@ public interface iRadio
      * Metodo para almacenar la frecuencia en el boton seleccionado
      *
      * @param frecuencia frecuencia de la radio a almacenar
-     * @param emisora parametro para identificar AM y FM.
      * @param posicion numero del boton de favoritos seleccionado.
      */
-    void setFavorito(double frecuencia, boolean emisora,int posicion);
+    void setFavorito(double frecuencia,int posicion);
     
     /**
      * Metodo para obtener la frecuencia almacenada en el boton, segun la emisora.
      *
-     * @param emisora parametro para identificar AM y FM.
      * @param posicion numero del boton de favoritos seleccionado.
      * @return frecuencia almacenada en el boton de favoritos.
      */
-    double getFavorito(boolean emisora,int posicion);
+    double getFavorito(int posicion);
     
     
 }
