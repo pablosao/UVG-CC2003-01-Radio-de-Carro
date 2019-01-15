@@ -30,20 +30,20 @@
                       <Component id="btnOnOff" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnUno" pref="53" max="32767" attributes="0"/>
-                          <Component id="btnSiete" max="32767" attributes="0"/>
+                          <Component id="btnUno" max="32767" attributes="0"/>
+                          <Component id="btnSiete" min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnDos" pref="53" max="32767" attributes="0"/>
-                          <Component id="btnOcho" max="32767" attributes="0"/>
+                          <Component id="btnDos" max="32767" attributes="0"/>
+                          <Component id="btnOcho" min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnTres" pref="53" max="32767" attributes="0"/>
-                          <Component id="btnNueve" max="32767" attributes="0"/>
+                          <Component id="btnTres" max="32767" attributes="0"/>
+                          <Component id="btnNueve" min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -62,7 +62,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="335" max="32767" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,7 +71,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="btnOnOff" min="-2" pref="39" max="-2" attributes="0"/>
-              <EmptySpace pref="102" max="32767" attributes="0"/>
+              <EmptySpace pref="108" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnUno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDos" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -89,7 +89,7 @@
                   <Component id="btnOcho" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSiete" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,6 +101,9 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Off"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="btnOnOffItemStateChanged"/>
@@ -113,6 +116,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDos">
       <Properties>
@@ -121,6 +127,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTres">
       <Properties>
@@ -129,6 +138,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCuatro">
       <Properties>
@@ -137,6 +149,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCinco">
       <Properties>
@@ -146,6 +161,9 @@
         <Property name="text" type="java.lang.String" value="5"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSeis">
       <Properties>
@@ -154,6 +172,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSiete">
       <Properties>
@@ -162,6 +183,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="7"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnOcho">
       <Properties>
@@ -171,7 +195,7 @@
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOchoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnNueve">
@@ -181,6 +205,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="9"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDiez">
       <Properties>
@@ -189,6 +216,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnOnce">
       <Properties>
@@ -198,6 +228,9 @@
         <Property name="text" type="java.lang.String" value="11"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDoce">
       <Properties>
@@ -207,7 +240,7 @@
         <Property name="text" type="java.lang.String" value="12"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoceActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoFavorito"/>
       </Events>
     </Component>
   </SubComponents>
