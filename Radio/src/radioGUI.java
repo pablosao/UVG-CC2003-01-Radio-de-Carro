@@ -3,6 +3,7 @@ import java.awt.Button;
 import java.awt.Label;
 import java.awt.event.ItemEvent;
 import javax.swing.JButton;
+import java.awt.Toolkit;
 
 /*
  * ===========================================================================================
@@ -68,6 +69,8 @@ public class radioGUI extends javax.swing.JFrame {
         btnBajaFrecuencia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Radio");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/radio.png")).getImage());
 
         btnOnOff.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnOnOff.setText("Off");
@@ -200,9 +203,7 @@ public class radioGUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(pnlFrecuenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbAM)
-                    .addGroup(pnlFrecuenciaLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lbFM)))
+                    .addComponent(lbFM))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlFrecuenciaLayout.setVerticalGroup(
@@ -227,6 +228,11 @@ public class radioGUI extends javax.swing.JFrame {
         });
 
         btnSubirFrecuencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/rrow.png"))); // NOI18N
+        btnSubirFrecuencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubirFrecuenciaActionPerformed(evt);
+            }
+        });
 
         btnBajaFrecuencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lrow.png"))); // NOI18N
 
@@ -384,6 +390,13 @@ public class radioGUI extends javax.swing.JFrame {
             changeLabelEmisora(false);
         }
     }//GEN-LAST:event_btnAmFmStateChanged
+
+    private void btnSubirFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirFrecuenciaActionPerformed
+        // TODO add your handling code here:
+        iRadio controlador = new Controlador();
+        
+        
+    }//GEN-LAST:event_btnSubirFrecuenciaActionPerformed
     
     /**
      * @param args the command line arguments
