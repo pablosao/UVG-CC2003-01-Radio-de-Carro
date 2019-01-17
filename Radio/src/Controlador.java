@@ -17,7 +17,8 @@ public class Controlador implements iRadio{
     private int     MAX_AM = 1610; //Variable estatica para la frecuencia maxima de AM
     private double  MUL_FM = 0.2; //Multiplo para subir o bajar de la frecuencia FM
     private int     MUL_AM = 10; //Multiplo para subir o bajar de la frecuencia AM
-    
+    private double frecuenciaActual = MIN_FM; //frecuencia con la que iniciara la radio
+    private boolean emisoraActual = false; //iniciara con la emisora fm
     
     @Override
     public boolean cambiarAmFm() {
