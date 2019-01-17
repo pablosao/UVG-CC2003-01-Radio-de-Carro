@@ -8,6 +8,10 @@ import java.awt.Toolkit;
 /*
  * ===========================================================================================
  * Modifico: Pablo Sao
+ * Fecha: 17/01/2019
+ * Descripción:  se agregan los estados de la interfac para manejar la radio.
+ * ===========================================================================================
+ * Modifico: Pablo Sao
  * Fecha: 16/01/2019
  * Descripción:  se agrega boton de frecuencia, visualización de recuencia e identificador de
  *               emisora al lado de la recuensia que se esta sintonizando. Se continua con el
@@ -378,23 +382,45 @@ public class radioGUI extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_eventoFavorito
-
+    
+    /**
+     * cambio del estado de la emisora
+     * @param evt evento del boton AM/FM
+     */
     private void btnAmFmStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnAmFmStateChanged
-        // TODO add your handling code here:
+        
+        //Instanciamos el controlador para manejo de estados
+        iRadio controlador = new Controlador();
+        
+        //Si el boton es seleccionado (true) coloca AM
         if(evt.getStateChange() == ItemEvent.SELECTED){
             btnAmFm.setText("AM");
             changeLabelEmisora(true);
+            //Invocamos el cambio de estado para frecuencia
+            controlador.cambiarAmFm();
+            
+            //desplegamos la ultima frecuencia AM
+            
         }
+        //Si el boton es deseleccionado (false) coloca FM 
         else{
             btnAmFm.setText("FM");
             changeLabelEmisora(false);
+            
+            //Invocamos el cambio de estado para frecuencia
+            controlador.cambiarAmFm();
+            
+            //desplegamos la ultima frecuencia AM
+            
         }
     }//GEN-LAST:event_btnAmFmStateChanged
 
     private void btnSubirFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirFrecuenciaActionPerformed
         // TODO add your handling code here:
-        iRadio controlador = new Controlador();
-        
+        Controlador controlador = new Controlador();
+        controlador.subirFrecuencia();
+//        String frecuencia = String.format("%d",controlador.subirFrecuencia());
+        //lbFrecuencia.setText();
         
     }//GEN-LAST:event_btnSubirFrecuenciaActionPerformed
     

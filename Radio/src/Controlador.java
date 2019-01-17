@@ -1,7 +1,15 @@
+import org.w3c.dom.*;
+import javax.xml.parsers.*;
+import java.io.*;
+import org.xml.sax.SAXException;
+
+
 /*
+ * ====================================================================================================================
  * Modifico: Pablo Sao
  * Fecha: 16/01/2019
 ¨* Descripción: Se empieza a agregarle logica al programa, con el requerimiento del cambio de frecuencias
+  * ====================================================================================================================
  */
 
 /**
@@ -17,17 +25,23 @@ public class Controlador implements iRadio{
     private int     MAX_AM = 1610; //Variable estatica para la frecuencia maxima de AM
     private double  MUL_FM = 0.2; //Multiplo para subir o bajar de la frecuencia FM
     private int     MUL_AM = 10; //Multiplo para subir o bajar de la frecuencia AM
-    private double frecuenciaActual = MIN_FM; //frecuencia con la que iniciara la radio
+    private String  PATH_DATOS = "Sistema.xml";
+    private double  frecuenciaActual = MAX_FM; //frecuencia con la que iniciara la radio
     private boolean emisoraActual = false; //iniciara con la emisora fm
+    
+    public void Controlador(){
+        
+    };
     
     @Override
     public boolean cambiarAmFm() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        //retornamos la nueva frecuencia
+        return !this.emisoraActual;
     }
 
     @Override
     public void encendidoRadio() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        throw new UnsupportedOperationException("Opción no soportada con este diseño."); 
     }
 
     @Override
@@ -35,10 +49,14 @@ public class Controlador implements iRadio{
         
         //Variable que contendra la nueva frecuencia
         double nuevaFrecuencia = 0.0;
+        String[] sintonizacion = getSintonizacionXML();
+        
+        frecuenciaActual = Double.parseDouble(sintonizacion[0]);
+        emisoraActual = sintonizacion[1].equals("AM")?true : false;
         
         //Si la emisora es AM
-        if(cambiarAmFm()){
-            //nuevaFrecuencia = frecuenciaSelecionada + MUL_AM;
+        if(emisoraActual){
+            nuevaFrecuencia = (int)(frecuenciaActual + MUL_AM);
             
             //Validamos si la frecuencia es mayor al maximo
             if(nuevaFrecuencia > MAX_AM){
@@ -49,7 +67,7 @@ public class Controlador implements iRadio{
         }
         //si la emisora es FM
         else{
-            //nuevaFrecuencia = frecuenciaSelecionada + MUL_FM;
+            nuevaFrecuencia = frecuenciaActual + MUL_FM;
             
             //Validamos si la frecuencia es mayor al maximo
             if(nuevaFrecuencia > MAX_FM){
@@ -69,8 +87,8 @@ public class Controlador implements iRadio{
         double nuevaFrecuencia = 0.0;
         
         //Si la emisora es AM
-        if(cambiarAmFm()){
-            //nuevaFrecuencia = frecuenciaSelecionada - MUL_AM;
+        if(emisoraActual){
+            nuevaFrecuencia = (int)(frecuenciaActual - MUL_AM);
             
             //Validamos si la frecuencia es menor al minimo
             if(nuevaFrecuencia < MIN_AM){
@@ -81,7 +99,7 @@ public class Controlador implements iRadio{
         }
         //si la emisora es FM
         else{
-            //nuevaFrecuencia = frecuenciaSelecionada - MUL_FM;
+            nuevaFrecuencia = frecuenciaActual - MUL_FM;
             
             //Validamos si la frecuencia es menor al minimo
             if(nuevaFrecuencia < MIN_FM){
@@ -102,5 +120,75 @@ public class Controlador implements iRadio{
     @Override
     public double getFavorito(int posicion) {
         throw new UnsupportedOperationException("Not supported yet."); 
+    }
+    
+    private String[] getSintonizacionXML(){
+        
+        String frecuencia = "";
+        String emisora  = "";
+
+        //Get Document Builder
+        try{
+            
+            String path = PATH_DATOS;
+            System.out.println(PATH_DATOS);
+        
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document document = db.parse(new File(PATH_DATOS));
+            document.getDocumentElement().normalize();
+            
+            
+//            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//            DocumentBuilder builder = factory.newDocumentBuilder();
+//
+//            //Build Document
+//            Document document = builder.parse(PATH_DATOS);
+//
+//            //Normalize the XML Structure; It's just too important !!
+//            document.getDocumentElement().normalize();
+
+            //Here comes the root node
+            Element root = document.getDocumentElement();
+            System.out.println(root.getNodeName());
+
+            //Get all employees
+            NodeList nList = document.getElementsByTagName("frecuencia");
+            
+            Node node = nList.item(0);
+            System.out.println("");    //Just a separator
+            if (node.getNodeType() == Node.ELEMENT_NODE)
+            {
+                //Obtenemos el elemento del nodo a partir del atributo del XML
+                Element eElement = (Element) node;
+                frecuencia = eElement.getElementsByTagName("seleccionada").item(0).getTextContent();
+                System.out.println(frecuencia);
+                emisora = eElement.getElementsByTagName("emisora").item(0).getTextContent();
+                System.out.println(emisora);
+            }
+            
+            
+
+//            for (int temp = 0; temp < nList.getLength(); temp++)
+//            {
+//                     Node node = nList.item(temp);
+//                     System.out.println("");    //Just a separator
+//                     if (node.getNodeType() == Node.ELEMENT_NODE)
+//                     {
+//                            //Print each employee's detail
+//                            Element eElement = (Element) node;
+//                            System.out.println("Employee id : "    + eElement.getAttribute("id"));
+//                            System.out.println("First Name : "  + eElement.getElementsByTagName("firstName").item(0).getTextContent());
+//                            System.out.println("Last Name : "   + eElement.getElementsByTagName("lastName").item(0).getTextContent());
+//                            System.out.println("Location : "    + eElement.getElementsByTagName("location").item(0).getTextContent());
+//                     }
+//            }
+        }
+        catch(Exception e){
+            System.out.println(e.toString());
+        }
+        
+        
+        return new String[]{frecuencia,emisora};
     }
 }
