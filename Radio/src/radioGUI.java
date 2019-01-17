@@ -1,9 +1,8 @@
 
-import java.awt.Button;
-import java.awt.Label;
 import java.awt.event.ItemEvent;
+import java.text.DecimalFormat;
 import javax.swing.JButton;
-import java.awt.Toolkit;
+
 
 /*
  * ===========================================================================================
@@ -30,6 +29,11 @@ import java.awt.Toolkit;
  */
 public class radioGUI extends javax.swing.JFrame {
 
+    
+    private iRadio controlador = new Controlador();
+    private int     MAX_AM = 1610; //Variable estatica para la frecuencia maxima de AM
+    private double  MAX_FM = 107.9; //Variable estatica para la frecuencia maxima de FM
+    
     /**
      * Creates new form radioGUI
      */
@@ -38,8 +42,8 @@ public class radioGUI extends javax.swing.JFrame {
         btnOnOff.setSelected(false);
         btnAmFm.setSelected(false);
         hideOptions(false);
+        lbFrecuencia.setText("107.9");
         changeLabelEmisora(false);
-        
     }
 
     /**
@@ -75,6 +79,8 @@ public class radioGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Radio");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/radio.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(412, 328));
+        setMinimumSize(new java.awt.Dimension(412, 328));
 
         btnOnOff.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnOnOff.setText("Off");
@@ -225,9 +231,9 @@ public class radioGUI extends javax.swing.JFrame {
         btnAmFm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAmFm.setText("FM");
         btnAmFm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAmFm.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                btnAmFmStateChanged(evt);
+        btnAmFm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAmFmActionPerformed(evt);
             }
         });
 
@@ -239,6 +245,11 @@ public class radioGUI extends javax.swing.JFrame {
         });
 
         btnBajaFrecuencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lrow.png"))); // NOI18N
+        btnBajaFrecuencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBajaFrecuenciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -335,6 +346,13 @@ public class radioGUI extends javax.swing.JFrame {
      */
     private void hideOptions(boolean show){
         
+        //
+        lbFrecuencia.setEnabled(show);
+        
+        //
+        lbAM.setEnabled(show);
+        lbFM.setEnabled(show);
+        
         //boton de recuencia
         btnAmFm.setEnabled(show);
         
@@ -383,46 +401,43 @@ public class radioGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_eventoFavorito
     
-    /**
-     * cambio del estado de la emisora
-     * @param evt evento del boton AM/FM
-     */
-    private void btnAmFmStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnAmFmStateChanged
+    private void btnSubirFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirFrecuenciaActionPerformed
         
-        //Instanciamos el controlador para manejo de estados
-        iRadio controlador = new Controlador();
+        if(btnAmFm.isSelected()){
+            lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
+        }
+        else{
+            lbFrecuencia.setText(Double.toString(controlador.subirFrecuencia()));
+        }
+               
+    }//GEN-LAST:event_btnSubirFrecuenciaActionPerformed
+
+    private void btnBajaFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaFrecuenciaActionPerformed
+        // TODO add your handling code here:
+        if(btnAmFm.isSelected()){
+            lbFrecuencia.setText(Integer.toString((int)controlador.bajarFrecuencia()));
+        }
+        else{
+            lbFrecuencia.setText(Double.toString(controlador.bajarFrecuencia()));
+        }
+    }//GEN-LAST:event_btnBajaFrecuenciaActionPerformed
+
+    private void btnAmFmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmFmActionPerformed
         
         //Si el boton es seleccionado (true) coloca AM
-        if(evt.getStateChange() == ItemEvent.SELECTED){
+        if(btnAmFm.isSelected()){
             btnAmFm.setText("AM");
-            changeLabelEmisora(true);
-            //Invocamos el cambio de estado para frecuencia
-            controlador.cambiarAmFm();
-            
-            //desplegamos la ultima frecuencia AM
-            
+            changeLabelEmisora(controlador.cambiarAmFm());
+            lbFrecuencia.setText(Integer.toString((int)MAX_AM));
         }
         //Si el boton es deseleccionado (false) coloca FM 
         else{
             btnAmFm.setText("FM");
-            changeLabelEmisora(false);
-            
-            //Invocamos el cambio de estado para frecuencia
-            controlador.cambiarAmFm();
-            
-            //desplegamos la ultima frecuencia AM
-            
+            changeLabelEmisora(controlador.cambiarAmFm()); 
+            lbFrecuencia.setText(Double.toString(MAX_FM));
+ 
         }
-    }//GEN-LAST:event_btnAmFmStateChanged
-
-    private void btnSubirFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirFrecuenciaActionPerformed
-        // TODO add your handling code here:
-        Controlador controlador = new Controlador();
-        controlador.subirFrecuencia();
-//        String frecuencia = String.format("%d",controlador.subirFrecuencia());
-        //lbFrecuencia.setText();
-        
-    }//GEN-LAST:event_btnSubirFrecuenciaActionPerformed
+    }//GEN-LAST:event_btnAmFmActionPerformed
     
     /**
      * @param args the command line arguments
