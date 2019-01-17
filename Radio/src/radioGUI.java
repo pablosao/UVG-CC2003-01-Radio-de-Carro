@@ -5,14 +5,23 @@ import java.awt.event.ItemEvent;
 import javax.swing.JButton;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * ===========================================================================================
+ * Modifico: Pablo Sao
+ * Fecha: 16/01/2019
+ * Descripción:  se agrega boton de frecuencia, visualización de recuencia e identificador de
+ *               emisora al lado de la recuensia que se esta sintonizando. Se continua con el
+ *               dinamismo que tendra la interfaz, conforme a las acciones de los botones
+ * ===========================================================================================
+ * Modifico: Pablo Sao
+ * Fecha: 14/01/2019
+ * Descripción: se crea la ventana y se agregan los botones de favoritos
+ * ===========================================================================================
  */
 
 /**
- *
- * @author pablo
+ * Se crea el maquetado de la interfaz de la radio
+ * @author Pablo Sao
+ * @version 1.2
  */
 public class radioGUI extends javax.swing.JFrame {
 
@@ -55,6 +64,8 @@ public class radioGUI extends javax.swing.JFrame {
         lbAM = new javax.swing.JLabel();
         lbFM = new javax.swing.JLabel();
         btnAmFm = new javax.swing.JToggleButton();
+        btnSubirFrecuencia = new javax.swing.JButton();
+        btnBajaFrecuencia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -215,6 +226,10 @@ public class radioGUI extends javax.swing.JFrame {
             }
         });
 
+        btnSubirFrecuencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/rrow.png"))); // NOI18N
+
+        btnBajaFrecuencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lrow.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,6 +237,12 @@ public class radioGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnOnOff, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAmFm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(pnlFrecuencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnUno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -247,24 +268,27 @@ public class radioGUI extends javax.swing.JFrame {
                             .addComponent(btnDoce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnOnOff, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAmFm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlFrecuencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(80, 80, 80)
+                        .addComponent(btnBajaFrecuencia, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnSubirFrecuencia, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlFrecuencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnOnOff, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAmFm, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(btnOnOff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAmFm, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlFrecuencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSubirFrecuencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBajaFrecuencia, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUno)
                     .addComponent(btnDos)
@@ -300,6 +324,15 @@ public class radioGUI extends javax.swing.JFrame {
      * @param show valor true para activar botones y false para desactivar botones
      */
     private void hideOptions(boolean show){
+        
+        //boton de recuencia
+        btnAmFm.setEnabled(show);
+        
+        //Botones de cambio de frecuencia
+        btnBajaFrecuencia.setEnabled(show);
+        btnSubirFrecuencia.setEnabled(show);
+        
+        //Botones de favoritos
         btnUno.setEnabled(show);
         btnDos.setEnabled(show);
         btnTres.setEnabled(show);
@@ -389,6 +422,7 @@ public class radioGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnAmFm;
+    private javax.swing.JButton btnBajaFrecuencia;
     private javax.swing.JButton btnCinco;
     private javax.swing.JButton btnCuatro;
     private javax.swing.JButton btnDiez;
@@ -400,6 +434,7 @@ public class radioGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnOnce;
     private javax.swing.JButton btnSeis;
     private javax.swing.JButton btnSiete;
+    private javax.swing.JButton btnSubirFrecuencia;
     private javax.swing.JButton btnTres;
     private javax.swing.JButton btnUno;
     private javax.swing.JLabel lbAM;
