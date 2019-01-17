@@ -407,7 +407,9 @@ public class radioGUI extends javax.swing.JFrame {
             lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
         }
         else{
-            lbFrecuencia.setText(Double.toString(controlador.subirFrecuencia()));
+            DecimalFormat df = new DecimalFormat("#.##");      
+            
+            lbFrecuencia.setText(df.format(controlador.subirFrecuencia()));
         }
                
     }//GEN-LAST:event_btnSubirFrecuenciaActionPerformed
@@ -418,7 +420,8 @@ public class radioGUI extends javax.swing.JFrame {
             lbFrecuencia.setText(Integer.toString((int)controlador.bajarFrecuencia()));
         }
         else{
-            lbFrecuencia.setText(Double.toString(controlador.bajarFrecuencia()));
+            DecimalFormat df = new DecimalFormat("#.##"); 
+            lbFrecuencia.setText(df.format(controlador.bajarFrecuencia()));
         }
     }//GEN-LAST:event_btnBajaFrecuenciaActionPerformed
 

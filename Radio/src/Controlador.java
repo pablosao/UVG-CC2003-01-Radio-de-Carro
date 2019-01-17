@@ -16,11 +16,11 @@ import java.util.Arrays;
  */
 public class Controlador implements iRadio{
     
-    private double  MIN_FM = 87.9; //Variable estatica para la frecuencia minima de FM
+    private double  MIN_FM = 87.90; //Variable estatica para la frecuencia minima de FM
     private double  MAX_FM = 107.9; //Variable estatica para la frecuencia maxima de FM
     private int     MIN_AM = 530; //Variable estatica para la frecuencia minima de AM
     private int     MAX_AM = 1610; //Variable estatica para la frecuencia maxima de AM
-    private double  MUL_FM = 0.2; //Multiplo para subir o bajar de la frecuencia FM
+    private double  MUL_FM = 0.20; //Multiplo para subir o bajar de la frecuencia FM
     private int     MUL_AM = 10; //Multiplo para subir o bajar de la frecuencia AM
 //    private String  PATH_DATOS = "/Data/Sistema.xml";
     private double  frecuenciaActual = MAX_FM; //frecuencia con la que iniciara la radio
@@ -66,7 +66,7 @@ public class Controlador implements iRadio{
         
         //Si la emisora es AM
         if(emisoraActual){
-            nuevaFrecuencia = (int)(frecuenciaActual + MUL_AM);
+            nuevaFrecuencia = frecuenciaActual + MUL_AM;
             
             //Validamos si la frecuencia es mayor al maximo
             if(nuevaFrecuencia > MAX_AM){
@@ -87,6 +87,8 @@ public class Controlador implements iRadio{
             }
         }
         
+        frecuenciaActual = nuevaFrecuencia;
+        
         return nuevaFrecuencia;
     }
 
@@ -98,7 +100,7 @@ public class Controlador implements iRadio{
         
         //Si la emisora es AM
         if(emisoraActual){
-            nuevaFrecuencia = (int)(frecuenciaActual - MUL_AM);
+            nuevaFrecuencia = frecuenciaActual - MUL_AM;
             
             //Validamos si la frecuencia es menor al minimo
             if(nuevaFrecuencia < MIN_AM){
