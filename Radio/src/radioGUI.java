@@ -519,7 +519,7 @@ public class radioGUI extends javax.swing.JFrame {
         if(soruce instanceof JButton){
             //Obtenemos el número del boton que posee de nombre
             boton = ((JButton)soruce).getLabel();  
-            favoritoSeleccionado = Integer.parseInt(boton)-1;
+            favoritoSeleccionado = Integer.parseInt(boton);
         }
         //vemos si el timmer se esta ejecutando y ver si ya ha sido presionado el boton	
         if (timer.isRunning()) {

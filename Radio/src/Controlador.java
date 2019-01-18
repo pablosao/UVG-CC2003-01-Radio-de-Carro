@@ -134,10 +134,10 @@ public class Controlador implements Radio{
     public void setFavorito(int posicion) {
         
         if(emisoraActual){
-            favoritosFM.set(posicion, frecuenciaActual);
+            favoritosFM.set((posicion-1), frecuenciaActual);
         }
         else{
-            favoritosAM.set(posicion, frecuenciaActual);
+            favoritosAM.set((posicion-1), frecuenciaActual);
         }
     }
 
@@ -145,10 +145,10 @@ public class Controlador implements Radio{
     public double getFavorito(int posicion) {
         
         if(emisoraActual){
-            return favoritosFM.get(posicion);
+            return favoritosFM.get((posicion-1));
         }
         else{
-            return favoritosAM.get(posicion);
+            return favoritosAM.get((posicion-1));
             
         }
         
