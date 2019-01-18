@@ -49,7 +49,7 @@ import javax.swing.Timer;
 public class radioGUI extends javax.swing.JFrame {
 
     
-    private Radio  controlador = new Controlador(); //controlador para implementar la interfaz de la radio
+    private iRadio  controlador = new Controlador(); //controlador para implementar la interfaz de la radio
     private int     favoritoSeleccionado = -1; // se inicializa la variable que contendra el favorito
 
     

@@ -4,7 +4,6 @@ import java.util.Arrays;
 /*
  * ====================================================================================================================
  * Modifico: Pablo Sao
- *           Juan Rodolfo Alonzo
  * Fecha: 16/01/2019
 ¨* Descripción: Se empieza a agregarle logica al programa, con el requerimiento del cambio de frecuencias
   * ====================================================================================================================
@@ -15,7 +14,7 @@ import java.util.Arrays;
  * @author pablo
  * @version 1.0
  */
-public class Controlador implements Radio{
+public class Controlador implements iRadio{
     
     private double  MIN_FM = 87.90; //Variable estatica para la frecuencia minima de FM
     private double  MAX_FM = 107.9; //Variable estatica para la frecuencia maxima de FM
