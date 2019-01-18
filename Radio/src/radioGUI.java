@@ -66,6 +66,19 @@ public class radioGUI extends javax.swing.JFrame {
         hideOptions(false);
         lbFrecuencia.setText("107.9");
         changeLabelEmisora(false);
+        
+        
+            
+        
+    }
+    
+    private void setInitRadio(){
+        
+        //cambiar frecuencia
+        if(controlador.cambiarAmFm()){
+            
+        }
+        else{
     }
 
     /**
