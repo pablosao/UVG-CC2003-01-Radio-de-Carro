@@ -59,7 +59,7 @@ public class ControladorTest {
     public void testEncendidoRadio() {
         System.out.println("encendidoRadio");
         Controlador instance = new Controlador();
-        instance.encendidoRadio();
+    //    instance.encendidoRadio();
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -71,7 +71,7 @@ public class ControladorTest {
     public void testSubirFrecuencia() {
         System.out.println("subirFrecuencia");
         Controlador instance = new Controlador();
-        double expResult = 0.0;
+        double expResult = 87.9;
         double result = instance.subirFrecuencia();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
