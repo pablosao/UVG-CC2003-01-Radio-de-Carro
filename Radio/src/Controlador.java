@@ -4,6 +4,7 @@ import java.util.Arrays;
 /*
  * ====================================================================================================================
  * Modifico: Pablo Sao
+ *           Juan Rodolfo Alonzo
  * Fecha: 16/01/2019
 ¨* Descripción: Se empieza a agregarle logica al programa, con el requerimiento del cambio de frecuencias
   * ====================================================================================================================
