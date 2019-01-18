@@ -127,6 +127,7 @@ public class Controlador implements iRadio{
 
     @Override
     public void setFavorito(int posicion) {
+        
         if(emisoraActual){
             favoritosAM.set(posicion, frecuenciaActual);
         }
@@ -137,12 +138,14 @@ public class Controlador implements iRadio{
 
     @Override
     public double getFavorito(int posicion) {
+        
         if(emisoraActual){
             return favoritosAM.get(posicion);
         }
         else{
             return favoritosFM.get(posicion);
         }
+        
     }
     
 }

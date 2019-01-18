@@ -1,14 +1,27 @@
 
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 
 /*
  * ===========================================================================================
  * Modifico: Pablo Sao
  * Fecha: 17/01/2019
- * Descripción:  se agregan los estados de la interfac para manejar la radio.
+ * Descripción:  se agregan los estados de la interfac para manejar la radio. Se incorpora
+ *               el almacenamiento de favoritos para AM y FM por medio de la identificación 
+ *               de los clicks en los botones, quedando de la siguiente forma:
+ *               
+ *               <> 1 Click: coloca el favorito
+ *               <> 2 Clicks: guarda el favorito
  * ===========================================================================================
  * Modifico: Pablo Sao
  * Fecha: 16/01/2019
@@ -30,12 +43,21 @@ import javax.swing.JButton;
 public class radioGUI extends javax.swing.JFrame {
 
     
-    private iRadio controlador = new Controlador();
+    private iRadio  controlador = new Controlador(); //controlador para implementar la interfaz de la radio
+    private int     favoritoSeleccionado = -1; // se inicializa la variable que contendra el favorito
     private int     MAX_AM = 1610; //Variable estatica para la frecuencia maxima de AM
     private double  MAX_FM = 107.9; //Variable estatica para la frecuencia maxima de FM
     
+    private Timer timer = new Timer(300, new ActionListener() { //control de clicks en botones de favoritos
+        public void actionPerformed(ActionEvent e) {
+            // El timmer ha sido apagado, por lo que es un click al boton
+            singleClick();
+            timer.stop();
+        }
+    });
+    
     /**
-     * Creates new form radioGUI
+     * Creando la forma de la GUI e inicializando instrucciones con los valores por defecto de la radio
      */
     public radioGUI() {
         initComponents();
@@ -94,101 +116,46 @@ public class radioGUI extends javax.swing.JFrame {
         btnUno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnUno.setText("1");
         btnUno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnUno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
+        btnUno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
             }
         });
 
         btnDos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDos.setText("2");
-        btnDos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnTres.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnTres.setText("3");
-        btnTres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnCuatro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnCuatro.setText("4");
-        btnCuatro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnCinco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnCinco.setText("5");
         btnCinco.setToolTipText("");
-        btnCinco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnSeis.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSeis.setText("6");
-        btnSeis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnSiete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSiete.setText("7");
-        btnSiete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnOcho.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnOcho.setText("8");
-        btnOcho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnNueve.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnNueve.setText("9");
-        btnNueve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnDiez.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDiez.setText("10");
-        btnDiez.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnOnce.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnOnce.setText("11");
         btnOnce.setToolTipText("");
-        btnOnce.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         btnDoce.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDoce.setText("12");
-        btnDoce.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoFavorito(evt);
-            }
-        });
 
         pnlFrecuencia.setBackground(new java.awt.Color(102, 102, 102));
         pnlFrecuencia.setMinimumSize(new java.awt.Dimension(32767, 32767));
@@ -331,6 +298,36 @@ public class radioGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    
+    /**
+     * Metodo para colocar la emisora almacenada en favorito al darle click
+     */
+    protected void singleClick() {
+        hideOptions(false);
+        double frecuenciaFavorito = controlador.getFavorito(favoritoSeleccionado);
+        
+        
+        if(btnAmFm.isSelected() && (frecuenciaFavorito != 0)){
+
+            lbFrecuencia.setText(Integer.toString((int) frecuenciaFavorito));
+        }
+        else if(!btnAmFm.isSelected() && (frecuenciaFavorito != 0)){
+            DecimalFormat df = new DecimalFormat("#.##");
+            lbFrecuencia.setText(df.format(controlador.getFavorito(favoritoSeleccionado)));
+        }
+        
+        hideOptions(true);
+    }
+    
+    /**
+     * Metodo para guardar el valor favorito al darle doble click al boton
+     */
+    protected void doubleClick() {
+        
+        controlador.setFavorito(favoritoSeleccionado);
+        
+    }
+        
     /**
      * Metodo para cambiar el identificador de la emisora seleccionada en la interfaz
      * @param emisora valor booleano donde true es am y false es fm
@@ -388,18 +385,6 @@ public class radioGUI extends javax.swing.JFrame {
             hideOptions(false);
         }
     }//GEN-LAST:event_btnOnOffItemStateChanged
-
-    private void eventoFavorito(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventoFavorito
-        
-        //Obtenemos el objeto seleccionado
-        Object soruce = evt.getSource();
-        
-        if(soruce instanceof JButton){
-            //Obtenemos el número del boton que posee de nombre
-            String boton = ((JButton)soruce).getLabel();  
-            
-        }
-    }//GEN-LAST:event_eventoFavorito
     
     private void btnSubirFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirFrecuenciaActionPerformed
         
@@ -407,8 +392,7 @@ public class radioGUI extends javax.swing.JFrame {
             lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
         }
         else{
-            DecimalFormat df = new DecimalFormat("#.##");      
-            
+            DecimalFormat df = new DecimalFormat("#.##");   
             lbFrecuencia.setText(df.format(controlador.subirFrecuencia()));
         }
                
@@ -437,10 +421,32 @@ public class radioGUI extends javax.swing.JFrame {
         else{
             btnAmFm.setText("FM");
             changeLabelEmisora(controlador.cambiarAmFm()); 
-            lbFrecuencia.setText(Double.toString(MAX_FM));
- 
+            lbFrecuencia.setText(Double.toString(MAX_FM)); 
         }
     }//GEN-LAST:event_btnAmFmActionPerformed
+
+    private void eventoFavoritos(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventoFavoritos
+	
+        Object soruce = evt.getSource();
+        
+		String boton;
+        
+        if(soruce instanceof JButton){
+            //Obtenemos el número del boton que posee de nombre
+            boton = ((JButton)soruce).getLabel();  
+            favoritoSeleccionado = Integer.parseInt(boton)-1;
+        }
+        //vemos si el timmer se esta ejecutando y ver si ya ha sido presionado el boton	
+        if (timer.isRunning()) {
+            timer.stop();
+            doubleClick();
+        } else {
+            //reiniciamos el timmer y quedamos a la espera del segundo click
+            timer.restart();
+        }
+    }//GEN-LAST:event_eventoFavoritos
+    
+    
     
     /**
      * @param args the command line arguments
