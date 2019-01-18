@@ -48,7 +48,7 @@ import javax.swing.Timer;
 public class radioGUI extends javax.swing.JFrame {
 
     
-    private Radio  controlador = new radio_hoja();//Controlador(); //controlador para implementar la interfaz de la radio
+    private Radio  controlador = new Controlador(); //controlador para implementar la interfaz de la radio
     private int     favoritoSeleccionado = -1; // se inicializa la variable que contendra el favorito
 
     
@@ -79,16 +79,18 @@ public class radioGUI extends javax.swing.JFrame {
         
         //cambiar frecuencia
         if(controlador.cambiarAmFm()){
+            btnAmFm.setSelected(false);
+            changeLabelEmisora(false);
+            btnAmFm.setText("FM");
+            DecimalFormat df = new DecimalFormat("#.##");   
+            lbFrecuencia.setText(df.format(controlador.subirFrecuencia()));
+            
+        }
+        else{
             btnAmFm.setSelected(true);
             changeLabelEmisora(true);
             lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
-        }
-        else{
-            btnAmFm.setSelected(false);
-            changeLabelEmisora(false);
-            
-            DecimalFormat df = new DecimalFormat("#.##");   
-            lbFrecuencia.setText(df.format(controlador.subirFrecuencia()));
+            btnAmFm.setText("AM");
         }
         
     }
@@ -494,14 +496,14 @@ public class radioGUI extends javax.swing.JFrame {
         //Si el boton es seleccionado (true) coloca AM
         if(btnAmFm.isSelected()){
             btnAmFm.setText("AM");
-            changeLabelEmisora(controlador.cambiarAmFm());
+            changeLabelEmisora(!controlador.cambiarAmFm());
             //Seteando frecuencia predeterminada
             lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
         }
         //Si el boton es deseleccionado (false) coloca FM 
         else{
             btnAmFm.setText("FM");
-            changeLabelEmisora(controlador.cambiarAmFm()); 
+            changeLabelEmisora(!controlador.cambiarAmFm()); 
             //seteando frecuencia predefinida
             DecimalFormat df = new DecimalFormat("#.##");   
             lbFrecuencia.setText(df.format(controlador.subirFrecuencia()));

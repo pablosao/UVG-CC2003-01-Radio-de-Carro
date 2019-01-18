@@ -41,10 +41,10 @@ public class Controlador implements Radio{
         //retornamos la nueva frecuencia
         emisoraActual = !emisoraActual;
         if(emisoraActual){
-            frecuenciaActual = MAX_AM;
+            frecuenciaActual = MAX_FM;
         }
         else{
-            frecuenciaActual = MAX_FM;
+            frecuenciaActual = MAX_AM;
         }
         return emisoraActual;
     }
@@ -66,17 +66,6 @@ public class Controlador implements Radio{
         
         //Si la emisora es AM
         if(emisoraActual){
-            nuevaFrecuencia = frecuenciaActual + MUL_AM;
-            
-            //Validamos si la frecuencia es mayor al maximo
-            if(nuevaFrecuencia > MAX_AM){
-                
-                //si es mayor al maximo, colocamos la frecuencia minima
-                nuevaFrecuencia = MIN_AM;
-            }
-        }
-        //si la emisora es FM
-        else{
             nuevaFrecuencia = frecuenciaActual + MUL_FM;
             
             //Validamos si la frecuencia es mayor al maximo
@@ -85,6 +74,20 @@ public class Controlador implements Radio{
                 //si es MAYOR al maximo, colocamos la frecuencia minima
                 nuevaFrecuencia = MIN_FM;
             }
+        }
+        //si la emisora es FM
+        else{
+            
+            nuevaFrecuencia = frecuenciaActual + MUL_AM;
+            
+            //Validamos si la frecuencia es mayor al maximo
+            if(nuevaFrecuencia > MAX_AM){
+                
+                //si es mayor al maximo, colocamos la frecuencia minima
+                nuevaFrecuencia = MIN_AM;
+            }
+            
+            
         }
         
         frecuenciaActual = nuevaFrecuencia;
@@ -100,17 +103,6 @@ public class Controlador implements Radio{
         
         //Si la emisora es AM
         if(emisoraActual){
-            nuevaFrecuencia = frecuenciaActual - MUL_AM;
-            
-            //Validamos si la frecuencia es menor al minimo
-            if(nuevaFrecuencia < MIN_AM){
-                
-                //si es menor al minimo, colocamos la frecuencia máxima
-                nuevaFrecuencia = MAX_AM;
-            }
-        }
-        //si la emisora es FM
-        else{
             nuevaFrecuencia = frecuenciaActual - MUL_FM;
             
             //Validamos si la frecuencia es menor al minimo
@@ -119,6 +111,19 @@ public class Controlador implements Radio{
                 //si es menor al minimo, colocamos la frecuencia máxima
                 nuevaFrecuencia = MAX_FM;
             }
+        }
+        //si la emisora es FM
+        else{
+            
+            nuevaFrecuencia = frecuenciaActual - MUL_AM;
+            
+            //Validamos si la frecuencia es menor al minimo
+            if(nuevaFrecuencia < MIN_AM){
+                
+                //si es menor al minimo, colocamos la frecuencia máxima
+                nuevaFrecuencia = MAX_AM;
+            }
+
         }
         frecuenciaActual = nuevaFrecuencia;
         
@@ -129,10 +134,10 @@ public class Controlador implements Radio{
     public void setFavorito(int posicion) {
         
         if(emisoraActual){
-            favoritosAM.set(posicion, frecuenciaActual);
+            favoritosFM.set(posicion, frecuenciaActual);
         }
         else{
-            favoritosFM.set(posicion, frecuenciaActual);
+            favoritosAM.set(posicion, frecuenciaActual);
         }
     }
 
@@ -140,10 +145,11 @@ public class Controlador implements Radio{
     public double getFavorito(int posicion) {
         
         if(emisoraActual){
-            return favoritosAM.get(posicion);
+            return favoritosFM.get(posicion);
         }
         else{
-            return favoritosFM.get(posicion);
+            return favoritosAM.get(posicion);
+            
         }
         
     }
