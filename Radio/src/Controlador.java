@@ -25,10 +25,10 @@ public class Controlador implements iRadio{
 //    private String  PATH_DATOS = "/Data/Sistema.xml";
     private double  frecuenciaActual = MAX_FM; //frecuencia con la que iniciara la radio
     private boolean emisoraActual = false; //iniciara con la emisora FM
-    private ArrayList<Double> favoritosAM = 
+    private ArrayList<Double> favoritosAM =  //listado de favoritos guardados para AM
             new ArrayList<Double>(
                     Arrays.asList(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0));
-    private ArrayList<Double> favoritosFM = 
+    private ArrayList<Double> favoritosFM =  //listado de favoritos guardados para FM
             new ArrayList<Double>(
                     Arrays.asList(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0));
     
