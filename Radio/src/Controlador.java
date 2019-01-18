@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @author pablo
  * @version 1.0
  */
-public class Controlador implements iRadio{
+public class Controlador implements Radio{
     
     private double  MIN_FM = 87.90; //Variable estatica para la frecuencia minima de FM
     private double  MAX_FM = 107.9; //Variable estatica para la frecuencia maxima de FM
@@ -50,7 +50,7 @@ public class Controlador implements iRadio{
     }
 
     @Override
-    public void encendidoRadio() {
+    public boolean encendidoRadio() {
         throw new UnsupportedOperationException("Opción no soportada con este diseño."); 
     }
 
