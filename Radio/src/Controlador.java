@@ -24,7 +24,7 @@ public class Controlador implements iRadio{
     private int     MUL_AM = 10; //Multiplo para subir o bajar de la frecuencia AM
 //    private String  PATH_DATOS = "/Data/Sistema.xml";
     private double  frecuenciaActual = MAX_FM; //frecuencia con la que iniciara la radio
-    private boolean emisoraActual = false; //iniciara con la emisora FM
+    private boolean emisoraActual = true; //iniciara con la emisora FM
     private ArrayList<Double> favoritosAM =  //listado de favoritos guardados para AM
             new ArrayList<Double>(
                     Arrays.asList(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0));

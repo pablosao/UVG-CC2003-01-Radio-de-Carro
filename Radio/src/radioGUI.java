@@ -14,6 +14,11 @@ import javax.swing.Timer;
 
 /*
  * ===========================================================================================
+ * Modifico: Pablo Sao y Juan Alonzo
+ * Fecha: 18/01/2019
+ * Descripción:  Se cambia el valor predeterminado al iniciar la radio y al momento de 
+ *               setear valores predeterminados
+ * ===========================================================================================
  * Modifico: Pablo Sao
  * Fecha: 17/01/2019
  * Descripción:  se agregan los estados de la interfac para manejar la radio. Se incorpora
@@ -45,8 +50,7 @@ public class radioGUI extends javax.swing.JFrame {
     
     private iRadio  controlador = new Controlador(); //controlador para implementar la interfaz de la radio
     private int     favoritoSeleccionado = -1; // se inicializa la variable que contendra el favorito
-    private int     MAX_AM = 1610; //Variable estatica para la frecuencia maxima de AM
-    private double  MAX_FM = 107.9; //Variable estatica para la frecuencia maxima de FM
+
     
     private Timer timer = new Timer(300, new ActionListener() { //control de clicks en botones de favoritos
         public void actionPerformed(ActionEvent e) {
@@ -61,24 +65,32 @@ public class radioGUI extends javax.swing.JFrame {
      */
     public radioGUI() {
         initComponents();
-        btnOnOff.setSelected(false);
-        btnAmFm.setSelected(false);
-        hideOptions(false);
-        lbFrecuencia.setText("107.9");
-        changeLabelEmisora(false);
-        
-        
-            
+        setInitRadio();
         
     }
     
+    /**
+     * Metodo para inicializar valores predeterminados de la radio al momento de ser encendida
+     */
     private void setInitRadio(){
+        //iniciando con la radio apagada
+        btnOnOff.setSelected(false);
+        hideOptions(false);
         
         //cambiar frecuencia
         if(controlador.cambiarAmFm()){
-            
+            btnAmFm.setSelected(true);
+            changeLabelEmisora(true);
+            lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
         }
         else{
+            btnAmFm.setSelected(false);
+            changeLabelEmisora(false);
+            
+            DecimalFormat df = new DecimalFormat("#.##");   
+            lbFrecuencia.setText(df.format(controlador.subirFrecuencia()));
+        }
+        
     }
 
     /**
@@ -137,38 +149,93 @@ public class radioGUI extends javax.swing.JFrame {
 
         btnDos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDos.setText("2");
+        btnDos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnTres.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnTres.setText("3");
+        btnTres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnCuatro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnCuatro.setText("4");
+        btnCuatro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnCinco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnCinco.setText("5");
         btnCinco.setToolTipText("");
+        btnCinco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnSeis.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSeis.setText("6");
+        btnSeis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnSiete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSiete.setText("7");
+        btnSiete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnOcho.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnOcho.setText("8");
+        btnOcho.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnNueve.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnNueve.setText("9");
+        btnNueve.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnDiez.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDiez.setText("10");
+        btnDiez.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnOnce.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnOnce.setText("11");
         btnOnce.setToolTipText("");
+        btnOnce.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         btnDoce.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDoce.setText("12");
+        btnDoce.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                eventoFavoritos(evt);
+            }
+        });
 
         pnlFrecuencia.setBackground(new java.awt.Color(102, 102, 102));
         pnlFrecuencia.setMinimumSize(new java.awt.Dimension(32767, 32767));
@@ -428,13 +495,16 @@ public class radioGUI extends javax.swing.JFrame {
         if(btnAmFm.isSelected()){
             btnAmFm.setText("AM");
             changeLabelEmisora(controlador.cambiarAmFm());
-            lbFrecuencia.setText(Integer.toString((int)MAX_AM));
+            //Seteando frecuencia predeterminada
+            lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
         }
         //Si el boton es deseleccionado (false) coloca FM 
         else{
             btnAmFm.setText("FM");
             changeLabelEmisora(controlador.cambiarAmFm()); 
-            lbFrecuencia.setText(Double.toString(MAX_FM)); 
+            //seteando frecuencia predefinida
+            DecimalFormat df = new DecimalFormat("#.##");   
+            lbFrecuencia.setText(df.format(controlador.subirFrecuencia()));
         }
     }//GEN-LAST:event_btnAmFmActionPerformed
 
