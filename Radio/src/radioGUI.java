@@ -77,6 +77,7 @@ public class radioGUI extends javax.swing.JFrame {
     public radioGUI() {
         
         initComponents();
+        this.setLocationRelativeTo(null);
         setInitRadio();
         
     }
