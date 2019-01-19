@@ -53,6 +53,11 @@ import javax.swing.Timer;
  */
 public class radioGUI extends javax.swing.JFrame {
 
+    /*
+        Clase del grupo de Andrea y Alexis
+    */
+    //private iRadio  controlador = new radio_hoja();
+    
     
     private iRadio  controlador = new Controlador(); //controlador para implementar la interfaz de la radio
     private int     favoritoSeleccionado = -1; // se inicializa la variable que contendra el favorito
@@ -81,9 +86,9 @@ public class radioGUI extends javax.swing.JFrame {
      */
     private void setInitRadio(){
         
-        JOptionPane.showMessageDialog(null,"Para guardar un favorito debe darle doble click al boton.\n"+
-                        "Para sintonizar la frecuencia de favorito, darle un click","Uso de Favoritos",JOptionPane.INFORMATION_MESSAGE);
-        
+//        JOptionPane.showMessageDialog(null,"Para guardar un favorito debe darle doble click al boton.\n"+
+//                        "Para sintonizar la frecuencia de favorito, darle un click","Uso de Favoritos",JOptionPane.INFORMATION_MESSAGE);
+//        
         
         //iniciando con la radio apagada
         btnOnOff.setSelected(false);
@@ -437,10 +442,10 @@ public class radioGUI extends javax.swing.JFrame {
      */
     private void hideOptions(boolean show){
         
-        //
+        //Manejo de la activación del label de la frecuencia
         lbFrecuencia.setEnabled(show);
         
-        //
+        //Manejo de la activación del label de AM/FM
         lbAM.setEnabled(show);
         lbFM.setEnabled(show);
         
@@ -468,8 +473,7 @@ public class radioGUI extends javax.swing.JFrame {
     
     
     private void btnOnOffItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnOnOffItemStateChanged
-        // TODO add your handling code here:
-        
+        //Si se enciende la radio se activan los botones        
         if(evt.getStateChange() == ItemEvent.SELECTED){
             btnOnOff.setText("On");
             hideOptions(true);
@@ -481,7 +485,7 @@ public class radioGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOnOffItemStateChanged
     
     private void btnSubirFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirFrecuenciaActionPerformed
-        
+        //si la radio se encuentra encendida sube la frecuencia
         if(btnAmFm.isSelected()){
             lbFrecuencia.setText(Integer.toString((int)controlador.subirFrecuencia()));
         }

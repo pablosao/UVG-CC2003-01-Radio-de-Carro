@@ -14,6 +14,17 @@ Se debe tener un programa principal que emplee el radio. Simplemente muestra un 
 Requisito
 Su programa principal debe funcionar, sustituyendo la clase que implementa la radio por una clase producida por otros dos o tres grupos como mínimo. El cambio debe ser lo más trasparente posible en su programa principal, requiriendo que se modifique una línea o menos del mismo al momento de compilarse.
 
+### Uso de la Aplicación
+
+Los botones de favoritos trabaja de la siguiente manera:
+* 1 Click sobre el botón para establecer la frecuencia almacenada.
+* 2 clicks sobre el botón para guardar la frecuencia deseada
+
+### Prueba de interfaz
+
+La implementación de la interfaz se realizo con la clase elaborada por el grupo conformado por Andrea y Alexis, la cual se encuentra dentro de la carpeta "Otras Implementaciones".
+
+
 ### Prerequisitos
 
 Para ejecutar el programa es necesario contar con:

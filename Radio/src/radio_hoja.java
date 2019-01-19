@@ -9,7 +9,7 @@
  *
  * @author Andrea y Alexis
  */
-public class radio_hoja implements Radio
+public class radio_hoja implements iRadio
 {
   private boolean onOff;
   private boolean amfm;
