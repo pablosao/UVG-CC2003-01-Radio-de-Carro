@@ -16,6 +16,11 @@ import javax.swing.Timer;
  * ===========================================================================================
  * Modifico: Pablo Sao y Juan Alonzo
  * Fecha: 18/01/2019
+ * Descripción:  se agrega mensaje de popup al inicio para mostrar el funcionamiento del boton
+ *              de favoritos.
+ * ===========================================================================================
+ * Modifico: Pablo Sao y Juan Alonzo
+ * Fecha: 18/01/2019
  * Descripción:  Se cambia el valor predeterminado al iniciar la radio y al momento de 
  *               setear valores predeterminados
  * ===========================================================================================
@@ -65,6 +70,7 @@ public class radioGUI extends javax.swing.JFrame {
      * Creando la forma de la GUI e inicializando instrucciones con los valores por defecto de la radio
      */
     public radioGUI() {
+        
         initComponents();
         setInitRadio();
         
@@ -74,6 +80,11 @@ public class radioGUI extends javax.swing.JFrame {
      * Metodo para inicializar valores predeterminados de la radio al momento de ser encendida
      */
     private void setInitRadio(){
+        
+        JOptionPane.showMessageDialog(null,"Para guardar un favorito debe darle doble click al boton.\n"+
+                        "Para sintonizar la frecuencia de favorito, darle un click","Uso de Favoritos",JOptionPane.INFORMATION_MESSAGE);
+        
+        
         //iniciando con la radio apagada
         btnOnOff.setSelected(false);
         hideOptions(false);
