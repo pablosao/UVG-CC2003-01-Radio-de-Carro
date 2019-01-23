@@ -1,2 +1,1 @@
-src/main/resources/static/* linguist-vendored
-project-docs/* linguist-documentation
+*.* linguistic-language=Java
